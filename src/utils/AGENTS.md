@@ -10,10 +10,11 @@
 
 ## 유틸리티 목록
 
-| 파일              | 역할                   |
-| ----------------- | ---------------------- |
-| `localStorage.ts` | LocalStorage CRUD 래퍼 |
-| `seedData.ts`     | 초기 샘플 데이터 시딩  |
+| 파일              | 역할                          |
+| ----------------- | ----------------------------- |
+| `localStorage.ts` | LocalStorage CRUD 래퍼        |
+| `seedData.ts`     | 초기 샘플 데이터 시딩         |
+| `wheelStorage.ts` | 돌림판 항목 LocalStorage 래퍼 |
 
 ## localStorage.ts 구조
 

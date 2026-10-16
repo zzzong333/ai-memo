@@ -6,6 +6,7 @@ import { Memo, MemoFormData } from '@/types/memo'
 import MemoList from '@/components/MemoList'
 import MemoForm from '@/components/MemoForm'
 import MemoViewer from '@/components/MemoViewer'
+import MemoWheel from '@/components/MemoWheel'
 
 export default function Home() {
   const {
@@ -24,6 +25,7 @@ export default function Home() {
   } = useMemos()
 
   const [isFormOpen, setIsFormOpen] = useState(false)
+  const [isWheelOpen, setIsWheelOpen] = useState(false)
   const [editingMemo, setEditingMemo] = useState<Memo | null>(null)
   const [viewingMemoId, setViewingMemoId] = useState<string | null>(null)
 
@@ -70,11 +72,20 @@ export default function Home() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <h1 className="text-2xl font-bold text-gray-900">📝 메모 앱</h1>
+                <h1 className="text-2xl font-bold text-gray-900">
+                  📝 슈퍼메모앱
+                </h1>
               </div>
             </div>
 
             <div className="flex items-center space-x-4">
+              <button
+                onClick={() => setIsWheelOpen(true)}
+                data-testid="open-wheel-btn"
+                className="inline-flex items-center px-4 py-2 border border-gray-300 text-sm font-medium rounded-lg shadow-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
+              >
+                🎡 돌림판
+              </button>
               <button
                 onClick={() => setIsFormOpen(true)}
                 className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
@@ -132,6 +143,14 @@ export default function Home() {
         onEdit={handleEditMemo}
         onDelete={deleteMemo}
         onSummaryChange={setMemoSummary}
+      />
+
+      {/* 돌림판 모달 */}
+      <MemoWheel
+        isOpen={isWheelOpen}
+        memos={memos}
+        onClose={() => setIsWheelOpen(false)}
+        onSelectMemo={handleViewMemo}
       />
 
       {/* 모달 폼 */}

@@ -17,6 +17,7 @@
 | `MemoItem.tsx`   | 개별 메모 카드 렌더링 (클릭 시 상세 보기)                            |
 | `MemoViewer.tsx` | 메모 상세 보기 모달 (마크다운 렌더링, ESC/배경 클릭 닫기, 편집/삭제) |
 | `MemoList.tsx`   | 메모 목록 및 필터/검색 UI                                            |
+| `MemoWheel.tsx`  | 메모 돌림판 모달 (현재 목록에서 무작위 메모 선택, 최대 12개 표시)    |
 
 ## Implementation Patterns
 
